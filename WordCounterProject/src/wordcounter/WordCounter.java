@@ -1,56 +1,56 @@
-package wordcounter;
+package compteurDeMots;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class WordCounter {
+public class CompteurDeMots {
     public static void main(String[] args) {
-        int totalWords = 0;
+        int totalMots = 0;
 
         try {
-            File file = new File("sample.txt"); // fichier à lire
-            Scanner scanner = new Scanner(file);
+            File fichier = new File("exemple.txt"); // fichier à lire
+            Scanner scanner = new Scanner(fichier);
 
             while (scanner.hasNextLine()) {
-                String line = scanner.nextLine();
-                String[] words = line.trim().split("\\s+"); // séparation par espace
-                totalWords += words.length;
+                String ligne = scanner.nextLine();
+                String[] mots = ligne.trim().split("\\s+"); // séparation par espace
+                totalMots += mots.length;
             }
 
             scanner.close();
-            System.out.println("Nombre total de mots : " + totalWords);
+            System.out.println("Nombre total de mots : " + totalMots);
         } catch (FileNotFoundException e) {
             System.out.println("Fichier non trouvé.");
         }
 
         // Test conditionnel :
-        int dogs = 1;
-        int cats = 2;
+        int chiens = 1;
+        int chats = 2;
 
-        if (dogs > 0 && cats == 0) {
-            if (dogs > 1) {
-                System.out.println("Dog lover");
+        if (chiens > 0 && chats == 0) {
+            if (chiens > 1) {
+                System.out.println("Amateur de chiens");
             } else {
-                System.out.println("Dog person");
+                System.out.println("Personne qui aime les chiens");
             }
-        } else if (cats > 0 && dogs == 0) {
-            if (cats > 1) {
-                System.out.println("Cat lover");
+        } else if (chats > 0 && chiens == 0) {
+            if (chats > 1) {
+                System.out.println("Amateur de chats");
             } else {
-                System.out.println("Cat person");
+                System.out.println("Personne qui aime les chats");
             }
-            System.out.println("Meow!");
-        } else if (cats > 0 && dogs > 0) {
-            if (dogs > cats) {
-                System.out.println("I guess you like dogs more");
-            } else if (dogs == cats) {
-                System.out.println("I guess you like both equally");
+            System.out.println("Miaou !");
+        } else if (chats > 0 && chiens > 0) {
+            if (chiens > chats) {
+                System.out.println("Je suppose que tu aimes plus les chiens");
+            } else if (chiens == chats) {
+                System.out.println("Je suppose que tu aimes les deux également");
             } else {
-                System.out.println("I guess you like cats more");
+                System.out.println("Je suppose que tu aimes plus les chats");
             }
         } else {
-            System.out.println("What, don’t you like pets?");
+            System.out.println("Quoi, tu n'aimes pas les animaux de compagnie ?");
         }
     }
 }
